@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VeilText Encoder</title>
+<style>
+body {
+    font-family: monospace;
+    background: #0f0f0f;
+    color: #00ffcc;
+    padding: 20px;
+}
+textarea {
+    width: 100%;
+    height: 300px;
+    background: #000;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    padding: 10px;
+    overflow: auto;
+}
+button {
+    margin: 15px 0;
+    padding: 10px 25px;
+    background: #00ffcc;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>🔐 VeilText Encoder</h2>
+
+<textarea id="inputText" placeholder="Enter your text here..."></textarea>
+
+<button onclick="encode()">Convert</button>
+
+<textarea id="outputText" placeholder="Encoded text will appear here..."></textarea>
+
+<script>
+function encode() {
+    let text = document.getElementById("inputText").value;
+    let result = [];
+
+    for (let i = 0; i < text.length; i++) {
+        let code = text.charCodeAt(i);
+        code = (code + 777) * 3;   // secret transformation
+        result.push(code.toString(36));
+    }
+
+    document.getElementById("outputText").value = result.join(".");
+}
+</script>
+
+</body>
+</html>
